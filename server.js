@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const users = require('./routes/api/users');
+const report = require('./routes/api/report');
 
 require('./config/passport')(passport);
 
@@ -19,7 +20,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 app.use(bodyParser.json());
 
-app.listen(9000);
+// app.listen(9000);
 
 const db = require('./config/keys').mongoURI;
 
@@ -31,6 +32,8 @@ mongoose.connect(db, { useNewUrlParser: true })
 app.use(passport.initialize());
 
 app.use('/api', users);
+
+app.use('/api', report);
 
 app.use(express.static(path.join(__dirname, 'client/build')));
 

@@ -2,12 +2,13 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const path = require('path');
 const keys = require('../../config/keys');
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
 const validateUpdateUserInput = require('../../validation/updateUser');
 const User = require('../../models/User');
-
+const PROJECT_DIR = process.cwd();
 router.post('/user-add', (req, res) => {
     const { errors, isValid } = validateRegisterInput(req.body);
     if (!isValid) {
@@ -38,6 +39,7 @@ router.post('/user-add', (req, res) => {
 });
 
 router.post('/user-data', (req, res) => {
+    console.log(PROJECT_DIR);
     User.find({}).select(['-password']).then(user => {
         if (user) {
             return res.status(200).send(user);

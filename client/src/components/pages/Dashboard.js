@@ -31,7 +31,7 @@ class Dashboard extends Component {
                                 <div className="col-sm-3 p-sm-2">
                                     <div className="card bg-primary text-white shadow-lg">
                                         <div className="card-body">
-                                            <h5 className="card-title">Users</h5>
+                                            <h5 className="card-title">Usersssssssssssss</h5>
                                             <p className="card-text">With supporting text below as a natural lead-in to
                                                 additional content.</p>
                                             <Link to="/users" className="btn btn-light"><FontAwesomeIcon className="text-primary" icon={faUserAlt}/> Go to Users</Link>

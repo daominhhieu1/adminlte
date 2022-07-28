@@ -21,6 +21,7 @@ class Sidebar extends Component {
                     <Link to="/dashboard" className="list-group-item list-group-item-action">Dashboard</Link>
                     <Link to="/users" className="list-group-item list-group-item-action">Users</Link>
                     <Link to="/events" className="list-group-item list-group-item-action">Events</Link>
+                    <Link to="/report" className="list-group-item list-group-item-action">Report</Link>
                     <button className="list-group-item list-group-item-action" onClick={this.onLogoutClick}>Logout <FontAwesomeIcon icon={faSignOutAlt} /></button>
                 </div>
             </div>
