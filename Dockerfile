@@ -5,8 +5,8 @@ FROM node:16
 
 RUN apt-get update \
     && apt-get install -y 
-WORKDIR /usr/src/app
-ADD . /usr/src/app
+WORKDIR /manage_admin/app
+ADD . /manage_admin/app
 RUN npm install --save 
 RUN npm install --verbose 
 RUN cd client
