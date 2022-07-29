@@ -32,7 +32,7 @@ router.post('/report-data', upload.single('file'), async(req, res) => {
     let data = [];
     const workbook1 = new ExcelJS.Workbook();
     workbook1.xlsx.readFile(filePath)
-    .then(function(e) {
+    .then( await function(e) {
         workbook1.eachSheet(function(val,ind){
             ws = workbook1.getWorksheet(ind);
             ws.eachRow(function(dataRows,indexRow){
@@ -47,10 +47,10 @@ router.post('/report-data', upload.single('file'), async(req, res) => {
                
             });
         });
-        await Report.insertMany(data).then(function(){
+    });
+    await Report.insertMany(data).then(function(){
 
-            console.log("Data inserted")
-        });
+        console.log("Data inserted")
     });
     await Report.find({}).then(r => {
         if (r) {
