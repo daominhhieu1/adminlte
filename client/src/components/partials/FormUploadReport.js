@@ -47,7 +47,7 @@ class FormUploadReport extends React.Component {
         // Send formData object
         // await axios.post("api/report-data", formData,   { headers: { "Content-Type": "multipart/form-data" } });
         console.log(returnArray);
-         this.props.uploadReport(formData, this.props.history);
+        await this.props.uploadReport(formData, this.props.history);
         console.log(formData);
     };
     // onUpdateFile = e => {

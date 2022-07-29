@@ -5,9 +5,9 @@ import {
     USER_UPDATE
 } from "./types";
 
-export const uploadReport = (body, history) => dispatch => {
+export const uploadReport = async (body, history) => dispatch => {
     console.log(body);
-    axios
+    await axios
         .post("/api/report-data", body,{ headers: { "Content-Type": "multipart/form-data" }})
         .then(res =>
             dispatch({
