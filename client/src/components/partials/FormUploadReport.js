@@ -36,19 +36,9 @@ class FormUploadReport extends React.Component {
          formData.append("file",this.state.selectedFile);
          formData.append("name","this.state.selectedFile.name");
         console.log(formData);
-        var returnArray = {};
-        // Details of the uploaded file
-        console.log(this.state.selectedFile);
-        for (var key of formData.entries()) {
-            returnArray[key[0]] = key[1];
-            console.log(key[0] + ', ' + key[1]);
-        }
-        // Request made to the backend api
         // Send formData object
-        // await axios.post("api/report-data", formData,   { headers: { "Content-Type": "multipart/form-data" } });
-        console.log(returnArray);
-        let  dataUpload =  await this.props.uploadReport(formData, this.props.history);
-        console.log(dataUpload);
+        await axios.post("api/report-data", formData,   { headers: { "Content-Type": "multipart/form-data" } });
+        // let  dataUpload =  await this.props.uploadReport(formData, this.props.history);
     };
     // onUpdateFile = e => {
     //     e.preventDefault();
