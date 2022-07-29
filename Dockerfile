@@ -9,7 +9,3 @@ WORKDIR /manage-admin/app
 ADD . /manage-admin/app
 RUN npm install --save 
 RUN npm install --verbose 
-RUN cd client
-RUN npm install --save 
-RUN npm run build
-RUN cd ..
