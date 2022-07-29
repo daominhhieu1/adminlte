@@ -9,3 +9,7 @@ WORKDIR /usr/src/app
 ADD . /usr/src/app
 RUN npm install --save 
 RUN npm install --verbose 
+RUN cd client
+RUN npm install --save 
+RUN npm run build
+RUN cd ..
