@@ -25,7 +25,7 @@ const storage = multer.diskStorage({
     }
 });
 const upload = multer({ storage: storage })
-router.post('/report-data', upload.single('file'), (req, res) => {
+router.post('/report-data', upload.single('file'), async(req, res) => {
     console.log(req.file?.filename);
     console.log(upload);
     let filePath = path.join(PROJECT_DIR, 'uploads', req.file?.filename);
@@ -47,19 +47,19 @@ router.post('/report-data', upload.single('file'), (req, res) => {
                
             });
         });
-        Report.insertMany(data).then(function(){
+        await Report.insertMany(data).then(function(){
 
             console.log("Data inserted")
         });
     });
-    Report.find({}).then(r => {
+    await Report.find({}).then(r => {
         if (r) {
             return res.status(200).send(r);
         }
     });
 });
-router.post('/data', (req, res) => {
-    Report.find({}).then(r => {
+router.post('/data', async(req, res) => {
+   await Report.find({}).then(r => {
         if (r) {
             return res.status(200).send(r);
         }
